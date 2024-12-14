@@ -1,0 +1,54 @@
+
+### Test reading all animals
+GET {{url}}/animals
+Accept: application/json
+
+### Test reading a specific animal by ID
+GET {{url}}/animals/3
+Accept: application/json
+
+### Test creating a new animal
+POST {{url}}/animals
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "name": "Max Test",
+  "species": "DOG",
+  "age": 5
+
+}
+
+
+### Test updating an existing animal
+PUT {{url}}/animals/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "name": "Updated Parrot",
+  "age": 3
+}
+
+### Test deleting a animal
+DELETE {{url}}/animals/1
+
+### Test reading all clinics
+GET {{url}}/clinics
+Accept: application/json
+
+### Test reading a specific clinic by ID
+GET {{url}}/clinics/3
+Accept: application/json
+
+### Test creating a new clinic
+POST {{url}}/clinics
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "clinicName": "Clinic Name",
+  "specialization": "DOG",
+"phone": "12345678",
+  "email": "clinic@gmail.com"
+}

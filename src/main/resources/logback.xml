@@ -1,0 +1,77 @@
+<configuration>
+
+    <!-- Console Appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Main Log File Appender -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/javalin-app.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Debug Log File Appender -->
+    <appender name="DEBUGFILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/debug.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Info Log File Appender -->
+    <appender name="INFOFILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/info.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Warn Log File Appender -->
+    <appender name="WARNFILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/warn.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Error Log File Appender -->
+    <appender name="ERRORFILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/error.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger (for INFO level and above) -->
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="INFOFILE" />
+        <appender-ref ref="WARNFILE" />
+        <appender-ref ref="ERRORFILE" />
+    </root>
+
+    <!-- Debug level Logger -->
+    <logger name="com.example" level="debug" additivity="false">
+        <appender-ref ref="DEBUGFILE" />
+    </logger>
+
+    <!-- Error level Logger (to ensure ERROR logs are only written to error.log) -->
+    <logger name="ERROR_LOGGER" level="error" additivity="false">
+        <appender-ref ref="ERRORFILE" />
+    </logger>
+
+    <!-- Suppress DEBUG logs from Jetty -->
+    <logger name="org.eclipse.jetty" level="info" />
+
+</configuration>

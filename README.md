@@ -1,0 +1,7 @@
+# DATAMATIKER EKSAMEN
+### 3. SEMESTER
+<hr>
+
+
+
+
