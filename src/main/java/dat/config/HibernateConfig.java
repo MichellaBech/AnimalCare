@@ -55,15 +55,22 @@ public class HibernateConfig {
         try {
             Configuration configuration = new Configuration();
             Properties props = new Properties();
+
             // Set the properties
             setBaseProperties(props);
+
             if (forTest) {
-                props = setTestProperties(props);
+                // Testindstillinger
+                setTestProperties(props);
             } else if (System.getenv("DEPLOYED") != null) {
+                // Produktionsindstillinger
                 setDeployedProperties(props);
             } else {
-                props = setDevProperties(props);
+                // Udviklingsindstillinger
+                setDevProperties(props);
             }
+
+
             configuration.setProperties(props);
             getAnnotationConfiguration(configuration);
 
