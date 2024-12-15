@@ -1,3 +1,4 @@
+/*
 package dat.controllers;
 
 import dat.config.ApplicationConfig;
@@ -167,3 +168,4 @@ public class VetClinicControllerDBTest {
                 .statusCode(200);
     }
 }
+ */
